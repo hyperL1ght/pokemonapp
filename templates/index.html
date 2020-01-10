@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+    <!--From https://codepen.io/frytyler/pen/EGdtg-->
+    <head>
+        <meta charset="UTF-8">
+        <title>ML API</title>
+    </head>
+
+    <body>
+        <div>
+	    <h1>Predict Pokemon Type</h1>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}"method="post">
+    	    <input type="text" value = "1" name="attack" placeholder="attack" required="required" />
+            <input type="text" value = "1" name="defence" placeholder="defence" required="required" />
+            <input type="text" value = "1" name="generation" placeholder="generation" required="required" />
+            <input type="text" value = "1" name="hp" placeholder="hp" required="required" />
+            <input type="text" value = "1" name="legendary" placeholder="legendary" required="required" />
+            <input type="text" value = "1" name="spatk" placeholder="special attack" required="required" />
+            <input type="text" value = "1" name="spdef" placeholder="special defence" required="required" />
+            <input type="text" value = "1" name="speed" placeholder="speed" required="required" />
+            <input type="text" value = "1" name="total" placeholder="total" required="required" />
+
+            <select name = "method" required = "required">
+                <option value="" selected>select your method</option>
+                <option value="KNN">KNN</option>
+                <option value="MLP">MLP</option>
+                <option value="RF">RF</option>
+            </select>
+        
+            <button type="submit"">Predict</button>
+        </form>
+
+        <br>
+        <br>
+        {{ prediction_text }}
+
+        </div>
+
+    </body>
+
+</html>
