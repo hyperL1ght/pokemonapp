@@ -1,0 +1,18 @@
+*   {
+    box-sizing: border-box;
+}
+
+html  {
+    height: 100%;
+    /* background-color: red; */
+}
+
+body {
+    min-height: 100%; 
+    margin: 0;
+    /* background-color: rosybrown; */
+}
+
+.user_input{
+    text-align: center;
+}

@@ -1,42 +1,70 @@
 <!DOCTYPE html>
-<html >
-    <!--From https://codepen.io/frytyler/pen/EGdtg-->
+<html lang="en">
     <head>
+        <!-- Required meta tags -->
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- CTRL+SHIFT+R to reload this file - i.e., remove catch of for this file -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
         <title>ML API</title>
     </head>
 
     <body>
-        <div>
-	    <h1>Predict Pokemon Type</h1>
 
-        <!-- Main Input For Receiving Query to our ML -->
-        <form action="{{ url_for('predict')}}"method="post">
-    	    <input type="text" value = "1" name="attack" placeholder="attack" required="required" />
-            <input type="text" value = "1" name="defence" placeholder="defence" required="required" />
-            <input type="text" value = "1" name="generation" placeholder="generation" required="required" />
-            <input type="text" value = "1" name="hp" placeholder="hp" required="required" />
-            <input type="text" value = "1" name="legendary" placeholder="legendary" required="required" />
-            <input type="text" value = "1" name="spatk" placeholder="special attack" required="required" />
-            <input type="text" value = "1" name="spdef" placeholder="special defence" required="required" />
-            <input type="text" value = "1" name="speed" placeholder="speed" required="required" />
-            <input type="text" value = "1" name="total" placeholder="total" required="required" />
+        <div class = "user_input">
+	        <h1>Predict Pokemon Type</h1>
 
-            <select name = "method" required = "required">
-                <option value="" selected>select your method</option>
-                <option value="KNN">KNN</option>
-                <option value="MLP">MLP</option>
-                <option value="RF">RF</option>
-            </select>
-        
-            <button type="submit"">Predict</button>
-        </form>
+            <!-- Main Input For Receiving Query to our ML -->
+            <form action="{{ url_for('predict')}}" method="post">
+                <div class="container">
+                    <div class="row">
+                        <label for="attack">Attack</label>
+                        <input type="range" value = "0" min = "0" max = "100" name="attack" required="required" />
+                        <label for="defence">Defence</label>
+                        <input type="range" value = "0" min = "0" max = "100" name="defence" required="required" />
+                    </div>
+                    <div class="row">
+                        <label for="generation">Generation</label>
+                        <input type="range" value = "0" min = "0" max = "100" name="generation" required="required" />
+                        <label for="hp">HP</label>
+                        <input type="range" value = "0" min = "0" max = "100" name="hp" required="required" />
+                    </div>
+                    <div class="row">
+                        <label for="legendary">Legendary</label>
+                        <input type="range" value = "0" min = "0" max = "1" name="legendary" required="required" />
+                        <label for="spatk">Special Attack</label>
+                        <input type="range" value = "0" min = "0" max = "100" name="spatk" required="required" />
+                    </div>
+                    <div class="row">
+                        <label for="spdef">Special Defence</label>
+                        <input type="range" value = "0" min = "0" max = "100" name="spdef" required="required" />
+                        <label for="speed">Speed</label>
+                        <input type="range" value = "0" min = "0" max = "100" name="speed" required="required" />
+                    </div>
+                    <div class="row">
+                        <label for="total">Total</label>
+                        <input type="range" value = "0" min = "0" max = "100" name="total" required="required" />
+                        <label for="method">Method</label>
+                        <select name = "method" required = "required">
+                            <option value="" selected>select your method</option>
+                            <option value="KNN">KNN</option>
+                            <option value="MLP">MLP</option>
+                            <option value="RF">RF</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <button type="submit"">Predict</button>
+                    </div>
+                </div>
 
-        <br>
-        <br>
-        {{ prediction_text }}
-
+            </form>
         </div>
+
+        <!-- each block must has a unique name, the name is "prediction" in this case -->
+        {% block prediction %}{% endblock %}
 
     </body>
 

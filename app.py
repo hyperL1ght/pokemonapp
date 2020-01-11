@@ -3,8 +3,6 @@ import numpy as np
 import pickle
 
 app = Flask(__name__) #Initialize the flask App
-#model = pickle.load(open('models/KNN.pkl', 'rb'))
-#print(model.predict([[1, 1, 1, 1, 1, 1, 1, 1, 1]]))
 
 @app.route('/')
 def home():
@@ -24,8 +22,9 @@ def predict():
     labels = model.classes_
     
     output = {k:v for k, v in zip(labels, prediction)}
+    data = [{"class":l, "prob":p} for l, p in zip(labels, prediction)] # list of dict
     
-    return render_template('index.html', prediction_text='Your pokemon\'s type is {}'.format(output))
+    return render_template('predict.html', prediction_text='Your pokemon\'s type is {}'.format(output), plot_data=data)
 
 if __name__ == "__main__":
     app.run(debug=True)
