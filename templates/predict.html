@@ -2,11 +2,10 @@
 
 {% block prediction %}
 
-    <div class = "prediction">
-        {{ prediction_text }}
+    <div class="prediction">
+        <div id="graphDiv"></div>
     </div>
-
-    <div id="graphDiv"></div>
+    
     <!-- store the data returned by flask in a variable named graphData, must be done within the template so that jinja2 works -->
     <!-- THIS IS NOT USER-SUPPLIED DATA -->
     <script>var graphData = {{ plot_data | tojson | safe }}</script>

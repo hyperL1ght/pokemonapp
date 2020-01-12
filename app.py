@@ -21,10 +21,9 @@ def predict():
     prediction = model.predict_proba(final_features).tolist()[0]
     labels = model.classes_
     
-    output = {k:v for k, v in zip(labels, prediction)}
     data = [{"class":l, "prob":p} for l, p in zip(labels, prediction)] # list of dict
     
-    return render_template('predict.html', prediction_text='Your pokemon\'s type is {}'.format(output), plot_data=data)
+    return render_template('predict.html', plot_data=data)
 
 if __name__ == "__main__":
     app.run(debug=True)
