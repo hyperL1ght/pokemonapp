@@ -20,10 +20,10 @@ def predict():
     final_features = [np.array(int_features)]
     prediction = model.predict_proba(final_features).tolist()[0]
     labels = model.classes_
-    
     data = [{"class":l, "prob":p} for l, p in zip(labels, prediction)] # list of dict
-    
-    return render_template('predict.html', plot_data=data)
+    params = [{'param': k, 'value': v} for k, v in request.form.items()]
+
+    return render_template('predict.html', plot_data=data, params = params)
 
 if __name__ == "__main__":
     app.run(debug=True)

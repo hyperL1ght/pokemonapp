@@ -4,16 +4,60 @@
 
 html  {
     height: 100%;
-    background-color: red;
+    background-color:whitesmoke;
 }
 
 body {
     min-height: 100%; 
     margin: 1%;
-    background-color: white;
+    background-color:whitesmoke;
     text-align: center;
 }
 
 .user_input{
-    background-color: rosybrown;
+    /* background-color: rosybrown; */
+}
+
+.my_slider{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    background-color: wheat;
+}
+
+.range_box{
+    display: flex;
+    background-color: royalblue;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.test{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.my_range {
+    height: 2px;
+    width: 100%;
+    -webkit-appearance: none;
+    outline: none;
+    border-radius: 2px;
+    background-color: grey;
+}
+
+.my_range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #69b3a2;
+}
+
+.my_primary{
+    background-color: #69b3a2;
+    color: honeydew;
 }

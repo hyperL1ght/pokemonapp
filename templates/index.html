@@ -8,63 +8,95 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <!-- CTRL+SHIFT+R to reload this file - i.e., remove catch of for this file -->
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <title>ML API</title>
     </head>
 
     <body>
         <h1>Predict Pokemon Type</h1>
+        <div class="container">
+            <div class="row">
+                <div class="user_input col">
+            
+                    <!-- Main Input For Receiving Query to our ML -->
+                    <form action="{{ url_for('predict')}}" method="post" id = "param_form">
+                        <div class="test">
+                            <div><label>Attack</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value="0" min = "0" max = "100" name="attack" required="required" /></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
 
-        <div class="user_input">
-	        
-            <!-- Main Input For Receiving Query to our ML -->
-            <form action="{{ url_for('predict')}}" method="post">
-                <div class="container">
-                    <div class="row">
-                        <label for="attack">Attack</label>
-                        <input type="range" value = "0" min = "0" max = "100" name="attack" required="required" />
-                        <label for="defence">Defence</label>
-                        <input type="range" value = "0" min = "0" max = "100" name="defence" required="required" />
-                    </div>
-                    <div class="row">
-                        <label for="generation">Generation</label>
-                        <input type="range" value = "0" min = "0" max = "100" name="generation" required="required" />
-                        <label for="hp">HP</label>
-                        <input type="range" value = "0" min = "0" max = "100" name="hp" required="required" />
-                    </div>
-                    <div class="row">
-                        <label for="legendary">Legendary</label>
-                        <input type="range" value = "0" min = "0" max = "1" name="legendary" required="required" />
-                        <label for="spatk">Special Attack</label>
-                        <input type="range" value = "0" min = "0" max = "100" name="spatk" required="required" />
-                    </div>
-                    <div class="row">
-                        <label for="spdef">Special Defence</label>
-                        <input type="range" value = "0" min = "0" max = "100" name="spdef" required="required" />
-                        <label for="speed">Speed</label>
-                        <input type="range" value = "0" min = "0" max = "100" name="speed" required="required" />
-                    </div>
-                    <div class="row">
-                        <label for="total">Total</label>
-                        <input type="range" value = "0" min = "0" max = "100" name="total" required="required" />
-                        <label for="method">Method</label>
-                        <select name = "method" required = "required">
-                            <option value="" selected>select your method</option>
-                            <option value="KNN">KNN</option>
-                            <option value="MLP">MLP</option>
-                            <option value="RF">RF</option>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <button type="submit"">Predict</button>
-                    </div>
+                        <div class="test">
+                            <div><label>Defence</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="defence" required="required"/></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
+
+                        <div class="test">
+                            <div><label>Generation</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="generation" required="required" /></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
+
+                        <div class="test">
+                            <div><label>HP</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="hp" required="required" /></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
+
+                        <div class="test">
+                            <div><label>Legendary</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "1" name="legendary" required="required" /></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
+
+                        <div class="test">
+                            <div><label>Special Attack</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="spatk" required="required" /></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
+
+                        <div class="test">
+                            <div><label>Special Defence</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="spdef" required="required" /></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
+
+                        <div class="test">
+                            <div><label>Speed</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="speed" required="required" /></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
+
+                        <div class="test">
+                            <div><label>Total</label></div>
+                            <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="total" required="required" /></div>
+                            <div class="range_value"><span>0</span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="custom-select" name = "method" required = "required">
+                                <option value="" selected>select your method</option>
+                                <option value="KNN">KNN</option>
+                                <option value="MLP">MLP</option>
+                                <option value="RF">RF</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn my_primary" type="submit"">Predict</button>
+                       
+                    </form>
                 </div>
+                
+                <script src="{{ url_for('static', filename='base.js')}}"></script>
 
-            </form>
-        </div>
-
-        <!-- each block must has a unique name, the name is "prediction" in this case -->
-        {% block prediction %}{% endblock %}
+                <div class="prediction col">
+                    <!-- each block must has a unique name, the name is "prediction" in this case -->
+                    {% block prediction %}{% endblock %}
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
 
     </body>
 

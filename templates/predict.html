@@ -2,14 +2,17 @@
 
 {% block prediction %}
 
-    <div class="prediction">
-        <div id="graphDiv"></div>
-    </div>
+    <div id="graphDiv"></div>
     
     <!-- store the data returned by flask in a variable named graphData, must be done within the template so that jinja2 works -->
-    <!-- THIS IS NOT USER-SUPPLIED DATA -->
-    <script>var graphData = {{ plot_data | tojson | safe }}</script>
+    <script>
+        // THIS IS NOT USER-SUPPLIED DATA 
+        var graphData = {{ plot_data | tojson | safe }}
+        // THIS IS USER-SUPPLIED DATA, BUT they're constrain by range and select so safer
+        var params = {{ params | tojson}}
+    </script>
     <!-- use graphData to make plot -->
     <script src="{{ url_for('static', filename='plot.js')}}"></script> 
-
+    <script src="{{ url_for('static', filename='resetInput.js')}}"></script>
+    
 {% endblock %}
