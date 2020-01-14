@@ -12,6 +12,7 @@
         var params = {{ params | tojson}}
     </script>
     <!-- use graphData to make plot -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="{{ url_for('static', filename='plot.js')}}"></script> 
     <script src="{{ url_for('static', filename='resetInput.js')}}"></script>
     

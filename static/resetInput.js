@@ -1,4 +1,5 @@
-// VERY INEFFICIENT, OPTIMIZE LATTER 
+// INEFFICIENT, OPTIMIZE LATTER 
+// after predict.html is rendered, set the value of inputs to what user sent (stored in params returned by Flask) 
 
 var elements = document.getElementById("param_form").elements;
 
@@ -11,7 +12,7 @@ for(var p in params){
     }
 }
 
-var slider = $('.test');
+var slider = $('.slider_container');
 slider.each(function(){
     var name = $(this).find('input').attr('name');
     var value = $(this).find('input').val();

@@ -1,37 +1,30 @@
 *   {
     box-sizing: border-box;
+    /* background-color:whitesmoke; */
 }
 
 html  {
     height: 100%;
-    background-color:whitesmoke;
+    /* background-color:whitesmoke; */
 }
 
 body {
     min-height: 100%; 
     margin: 1%;
-    background-color:whitesmoke;
+    /* background-color:whitesmoke; */
     text-align: center;
 }
 
-.user_input{
-    /* background-color: rosybrown; */
-}
-
-.my_slider{
+.slider_container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 60%;
-    background-color: wheat;
 }
 
 .range_box{
     display: flex;
-    background-color: royalblue;
     align-items: center;
-    justify-content: space-between;
-    width: 60%;
+    width: 50%;
 }
 
 .test{
@@ -40,13 +33,20 @@ body {
     justify-content: space-between;
 }
 
+/* cross-browser support adapted from https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+
 .my_range {
-    height: 2px;
-    width: 100%;
     -webkit-appearance: none;
+    width: 100%;
     outline: none;
-    border-radius: 2px;
+}
+
+/* Chrome */
+.my_range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
     background-color: grey;
+    border-radius: 2px;
 }
 
 .my_range::-webkit-slider-thumb{
@@ -55,6 +55,60 @@ body {
     height: 18px;
     border-radius: 50%;
     background: #69b3a2;
+    margin-top: -9px;
+}
+
+/* FF */
+.my_range::-moz-range-track {
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: grey;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.my_range::-moz-range-thumb{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #69b3a2;
+    border: none;
+}
+
+/* https://stackoverflow.com/questions/18794026/remove-dotted-outline-from-range-input-element-in-firefox */
+.my_range::-moz-focus-outer {
+    border: 0;
+}
+
+/* MS Edge */
+.my_range::-ms-track {
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+    height: 2px;
+    background: grey;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.my_range::-ms-thumb{
+    transform: scale(1) !important;
+    margin-top: 0;
+    box-sizing: border-box;
+    border: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #69b3a2;
+
+}
+
+.range_value{
+    min-width: 50px;
+    background: #69b3a2;
+    color: honeydew;
+    border-radius: 30%;
 }
 
 .my_primary{

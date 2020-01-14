@@ -6,10 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <!-- CTRL+SHIFT+R to reload this file - i.e., remove catch of for this file -->
+        <!-- CTRL+SHIFT+R to reload static files - i.e., remove catch -->
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-        <script src="https://d3js.org/d3.v5.min.js"></script>
         <title>ML API</title>
     </head>
 
@@ -20,56 +19,57 @@
                 <div class="user_input col">
             
                     <!-- Main Input For Receiving Query to our ML -->
+                    <!-- NOT DRY, consider using template for slider_container group -->
                     <form action="{{ url_for('predict')}}" method="post" id = "param_form">
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>Attack</label></div>
                             <div class="range_box"><input class="my_range" type="range" value="0" min = "0" max = "100" name="attack" required="required" /></div>
                             <div class="range_value"><span>0</span></div>
                         </div>
 
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>Defence</label></div>
                             <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="defence" required="required"/></div>
                             <div class="range_value"><span>0</span></div>
                         </div>
 
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>Generation</label></div>
                             <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="generation" required="required" /></div>
                             <div class="range_value"><span>0</span></div>
                         </div>
 
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>HP</label></div>
                             <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="hp" required="required" /></div>
                             <div class="range_value"><span>0</span></div>
                         </div>
 
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>Legendary</label></div>
                             <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "1" name="legendary" required="required" /></div>
                             <div class="range_value"><span>0</span></div>
                         </div>
 
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>Special Attack</label></div>
                             <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="spatk" required="required" /></div>
                             <div class="range_value"><span>0</span></div>
                         </div>
 
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>Special Defence</label></div>
                             <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="spdef" required="required" /></div>
                             <div class="range_value"><span>0</span></div>
                         </div>
 
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>Speed</label></div>
                             <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="speed" required="required" /></div>
                             <div class="range_value"><span>0</span></div>
                         </div>
 
-                        <div class="test">
+                        <div class="slider_container">
                             <div><label>Total</label></div>
                             <div class="range_box"><input class="my_range" type="range" value = "0" min = "0" max = "100" name="total" required="required" /></div>
                             <div class="range_value"><span>0</span></div>
