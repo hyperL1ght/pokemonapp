@@ -10,3 +10,15 @@ for(var p in params){
         }
     }
 }
+
+var slider = $('.test');
+slider.each(function(){
+    var name = $(this).find('input').attr('name');
+    var value = $(this).find('input').val();
+    for(var p in params){
+        param = params[p];
+        if(name === param.param){
+            $(this).find('span').html(value);
+        }
+    }
+});
