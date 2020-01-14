@@ -2,10 +2,6 @@
 
 // set the dimensions and margins of the graph
 // margin convention: https://bl.ocks.org/mbostock/3019563
-var margin = {top: 10, right: 30, bottom: 90, left: 40},
-width = 460 - margin.left - margin.right,
-height = 450 - margin.top - margin.bottom;
-
 var margin = {top: 35, right: 35, bottom: 35, left: 35},
     outerWidth = 500,
     outerHeight = 500,
