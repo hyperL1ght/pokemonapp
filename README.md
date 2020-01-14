@@ -11,7 +11,7 @@ A simple web app built with `Flash`, `JQuery` and `d3.js` which allows user to p
 ![alt text](imgs/screen_record.gif)
 
 - Tested on Google Chrome ver. 79, Firefox ver. 72 and Microsoft Edge ver. 44, screen_record performed on Google Chrome
-- Custom range slider currently doesn't displayed correct on IE, it's working correctly though 
+- Custom range slider currently doesn't displayed as expected on IE, it's working correctly though 
 
 ### Step 3: Deployment 
 
