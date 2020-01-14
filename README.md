@@ -36,7 +36,7 @@ A simple web app built with `Flash`, `JQuery` and `d3.js` which allows user to p
     - on Window: `venv\Scripts\activate`
     - on Linux:  `source venv/bin/activate`
 5. Install required packages: `pip install -r requirements.txt`
-6. Run the app locally: `python app.py`, 
-    - If everything works as expected, you should be something similar to this:
+6. Run the app locally: `python3 app.py`, 
+    - If everything works as expected, you should see something similar to this:
 ![alt text](imgs/flask_output.PNG)
     - The web app is running at: `http://127.0.0.1:5000/` or `http://localhost:5000/`
