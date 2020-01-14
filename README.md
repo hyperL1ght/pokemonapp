@@ -26,3 +26,17 @@ A simple web app built with `Flash`, `JQuery` and `d3.js` which allows user to p
 ### Data source
 
 - https://www.kaggle.com/abcsds/pokemon
+
+### To run locally 
+
+1. Clone this repo: `git clone https://github.com/hyperL1ght/pokemonapp.git`
+2. Go the project folder: `cd pokemonapp`
+3. Create a virtual environment named *venv* to run our app `python3 -m venv venv`, I used python 3.7
+4. Activate the virtual environment:
+    - on Window: `venv\Scripts\activate`
+    - on Linux:  `source venv/bin/activate`
+5. Install required packages: `pip install -r requirements.txt`
+6. Run the app locally: `python app.py`, 
+- If everything works as expected, you should be something similar to this:
+![alt text](imgs/flask_output.PNG)
+- The web app is running at: `http://127.0.0.1:5000/` or `http://localhost:5000/`
