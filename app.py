@@ -26,4 +26,4 @@ def predict():
     return render_template('predict.html', plot_data=data, params = params)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
