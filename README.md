@@ -19,7 +19,7 @@ A simple web app built with `Flash`, `JQuery` and `d3.js` which allows user to p
 
 ## Step 3: Deployment 
 
-- TODO 
+- The app is up and running at: https://hyperl1ght-pokemon.herokuapp.com/
 
 ## Improvements:
 
